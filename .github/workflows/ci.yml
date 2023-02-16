@@ -38,13 +38,13 @@ jobs:
       id: go
 
     - name: install Golang-migrate
-    - uses: |
+      run: |
         curl -L https://github.com/golang-migrate/migrate/releases#:~:text=migrate.linux%2Damd64.tar.gz | tar xvz
         sudo mv migrate /usr/bin/
         which migrate
       
     - name: Run migrations
-    - uses: make migrateup
+      run: make migrateup
 
     - name: Test
-    - uses: make test
+      run: make test
